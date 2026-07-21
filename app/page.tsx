@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, Loader2 } from "lucide-react"; // Kita import Loader2 untuk ikon mutar
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss, SiJavascript, SiPhp, SiLaravel, SiFigma } from "react-icons/si";
 
 import About from "@/components/About";
 import Projects from "@/components/Projects";
@@ -10,7 +11,18 @@ import Contact from "@/components/Contact";
 import BackgroundY2K from "@/components/BackgroundY2K";
 
 export default function Home() {
-  const tools = ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML", "CSS", "JavaScript", "PHP", "Laravel","Figma"];
+  const tools = [
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Tailwind CSS", icon: SiTailwindcss },
+    { name: "HTML", icon: SiHtml5 },
+    { name: "CSS", icon: SiCss },
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "PHP", icon: SiPhp },
+    { name: "Laravel", icon: SiLaravel },
+    { name: "Figma", icon: SiFigma }
+  ];
   
   // Fitur saklar untuk mengontrol Layar Loading
   const [isLoading, setIsLoading] = useState(true);
@@ -34,14 +46,12 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, y: -50 }} // Menghilang ke atas seperti pintu garasi
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void"
-          >
-            {/* Ikon berputar */}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-void">
+          
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              className="text-flame mb-6"
-            >
+              className="text-flame mb-6">
               <Loader2 size={48} />
             </motion.div>
 
@@ -147,15 +157,16 @@ export default function Home() {
           </section>
 
           {/* --- MARQUEE TOOLS SECTION --- */}
-          <div className="relative overflow-hidden py-4 bg-surface border-y border-line z-10 flex">
+          <div className="relative overflow-hidden py-6 bg-surface border-y border-line z-10 flex">
             <motion.div
-              className="flex whitespace-nowrap w-max"
+              className="flex whitespace-nowrap w-max items-center"
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             >
               {[...tools, ...tools].map((t, i) => (
-                <span key={i} className="flex items-center font-mono text-sm uppercase tracking-wider text-ink-muted px-8">
-                  {t} <span className="ml-8 text-spark text-[10px]">●</span>
+                <span key={i} className="flex items-center gap-3 font-mono text-base uppercase tracking-wider text-ink-muted px-10 transition-colors hover:text-ink">
+                  <t.icon className="text-2xl" />
+                  {t.name} <span className="ml-10 text-spark text-[10px]">●</span>
                 </span>
               ))}
             </motion.div>
