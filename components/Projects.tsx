@@ -9,7 +9,6 @@ export default function Projects() {
       title: "E-Commerce B2C Joranku Rod Custom",
       category: "E-Commerce",
       description: "Dashboard admin interaktif dengan chart dan tabel data real-time.",
-    
       tags: ["Laravel 12", "PHP", "HTML", "CSS", "JavaSript", "Fabric.Js", "Chart.Js", "MySql", "Midtrans", "RajaOngkir", "Tawk.To"],
       image: "/jrcstore1.jpg", 
       liveUrl: "https://jrcstore.my.id/",
@@ -96,6 +95,7 @@ export default function Projects() {
                   {project.description}
                 </p>
 
+
                 {/* Tech Stack (Tags) */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, i) => (
@@ -105,16 +105,16 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* Tombol Aksi (2 Buttons) */}
+                
                 <div className="flex gap-3 mt-auto pt-4 border-t border-line border-dashed">
              
                   <a
                     href={project.caseStudyUrl}
                     className="flex-1 flex items-center justify-center gap-2 rounded-lg border border-line bg-surface-2 px-4 py-2 text-xs font-bold text-ink transition-all hover:border-spark/50 hover:text-spark" >
-                    <ImageIcon size={14} /> View
+                    <ImageIcon size={14} /> View 
                   </a>
 
-                  {/* Tombol Website (Hanya muncul jika liveUrl diisi) */}
+                  
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
