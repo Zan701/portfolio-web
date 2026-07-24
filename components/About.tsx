@@ -14,8 +14,7 @@ export default function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-4xl w-full z-10"
-      >
+        className="max-w-4xl w-full z-10">
         <h2 className="mb-16 text-center text-3xl font-bold sm:text-4xl font-display text-ink">
           About <span className="text-spark">Me</span>
         </h2>

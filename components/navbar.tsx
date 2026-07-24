@@ -8,30 +8,45 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string, path: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+
+    const element = document.getElementById(id);
+    if (element) {
+   
+      element.scrollIntoView({ behavior: "smooth" });
+      
+    
+      window.history.pushState(null, '', path);
+    } else {
+    
+      window.location.href = path;
+    }
+  };
+
   return (
     <>
-      {/* Navbar Desktop (Desain Ignition: tanpa shadow tebal, pakai border tipis) */}
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        // pointer-events-none agar bagian kosong navbar tidak menghalangi klik ke halaman bawahnya
-        className="fixed top-0 left-0 right-0 z-50 hidden sm:flex items-center justify-center p-6 pointer-events-none"
-      >
-        <div className="pointer-events-auto flex items-center gap-8 rounded-full bg-surface/80 px-8 py-3 backdrop-blur-md border border-line">
-          <Link href="/" className="text-sm font-medium text-ink-muted hover:text-flame transition-colors">Home</Link>
-          <Link href="#about" className="text-sm font-medium text-ink-muted hover:text-flame transition-colors">About</Link>
-          <Link href="#projects" className="text-sm font-medium text-ink-muted hover:text-flame transition-colors">Projects</Link>
-          <Link href="#contact" className="text-sm font-medium text-ink-muted hover:text-flame transition-colors">Contact</Link>
+    
+        className="fixed top-0 left-0 right-0 z-50 hidden sm:flex items-center justify-center p-6 pointer-events-none">
+        <div className="pointer-events-auto flex items-center gap-2 rounded-full bg-surface/60 px-3 py-2 backdrop-blur-xl border border-line/60 shadow-2xl shadow-void/80">
+          <a href="/" onClick={(e) => handleNavClick(e, 'home', '/')} className="px-5 py-2 text-sm font-medium text-ink-muted transition-all duration-300 hover:text-ink hover:bg-surface-2/80 rounded-full cursor-pointer">Home</a>
+          <a href="/about" onClick={(e) => handleNavClick(e, 'about', '/about')} className="px-5 py-2 text-sm font-medium text-ink-muted transition-all duration-300 hover:text-ink hover:bg-surface-2/80 rounded-full cursor-pointer">About</a>
+          <a href="/projects" onClick={(e) => handleNavClick(e, 'projects', '/projects')} className="px-5 py-2 text-sm font-medium text-ink-muted transition-all duration-300 hover:text-ink hover:bg-surface-2/80 rounded-full cursor-pointer">Projects</a>
+          <a href="/contact" onClick={(e) => handleNavClick(e, 'contact', '/contact')} className="px-5 py-2 text-sm font-medium text-ink-muted transition-all duration-300 hover:text-ink hover:bg-surface-2/80 rounded-full cursor-pointer">Contact</a>
         </div>
       </motion.nav>
 
       {/* Tombol Hamburger HP */}
       <div className="fixed top-4 right-4 z-[60] sm:hidden">
-        <button 
+        <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-3 rounded-full bg-surface/90 backdrop-blur-md border border-line text-ink transition active:scale-95"
-        >
+          className="p-3 rounded-full bg-surface/90 backdrop-blur-md border border-line text-ink transition active:scale-95">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -39,17 +54,17 @@ export default function Navbar() {
       {/* Layar Menu Fullscreen HP */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-void/95 backdrop-blur-xl sm:hidden"
           >
-            <div className="flex flex-col items-center gap-8 text-3xl font-bold font-sans">
-              <Link href="/" className="text-ink hover:text-flame transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-              <Link href="#about" className="text-ink hover:text-flame transition-colors" onClick={() => setIsOpen(false)}>About</Link>
-              <Link href="#projects" className="text-ink hover:text-flame transition-colors" onClick={() => setIsOpen(false)}>Projects</Link>
-              <Link href="#contact" className="text-ink hover:text-flame transition-colors" onClick={() => setIsOpen(false)}>Contact</Link>
+            <div className="flex flex-col items-center gap-8 text-3l font-bold font-sans">
+              <a href="/" onClick={(e) => handleNavClick(e, 'home', '/')} className="text-ink hover:text-flame transition-colors cursor-pointer">Home</a>
+              <a href="/about" onClick={(e) => handleNavClick(e, 'about', '/about')} className="text-ink hover:text-flame transition-colors cursor-pointer">About</a>
+              <a href="/projects" onClick={(e) => handleNavClick(e, 'projects', '/projects')} className="text-ink hover:text-flame transition-colors cursor-pointer">Projects</a>
+              <a href="/contact" onClick={(e) => handleNavClick(e, 'contact', '/contact')} className="text-ink hover:text-flame transition-colors cursor-pointer">Contact</a>
             </div>
           </motion.div>
         )}

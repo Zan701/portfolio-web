@@ -8,7 +8,7 @@ export default function Projects() {
     {
       title: "E-Commerce B2C Joranku Rod Custom",
       category: "E-Commerce",
-      description: "Dashboard admin interaktif dengan chart dan tabel data real-time.",
+      description: "A B2C website developed to help the Joranku Rod Custom MSME digitize its fishing equipment sales process. This system features rod customization based on customer needs, supported by online transactions through Midtrans, RajaOngkir integration, and after-sales service in the form of product returns.",
       tags: ["Laravel 12", "PHP", "HTML", "CSS", "JavaSript", "Fabric.Js", "Chart.Js", "MySql", "Midtrans", "RajaOngkir", "Tawk.To"],
       image: "/jrcstore1.jpg", 
       liveUrl: "https://jrcstore.my.id/",
@@ -45,8 +45,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-4 text-3xl font-bold sm:text-4xl font-display text-ink"
-          >
+            className="mb-4 text-3xl font-bold sm:text-4xl font-display text-ink">
            Featured <span className="text-flame">Projects</span>
           </motion.h2>
           <motion.p
@@ -54,8 +53,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-ink-muted text-lg leading-relaxed"
-          >
+            className="text-ink-muted text-lg leading-relaxed">
             A selection of projects that showcase my approach to solving real-world problems through web development.
           </motion.p>
         </div>
@@ -95,7 +93,6 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-
                 {/* Tech Stack (Tags) */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, i) => (
@@ -114,14 +111,12 @@ export default function Projects() {
                     <ImageIcon size={14} /> View 
                   </a>
 
-                  
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-flame/10 border border-flame/20 px-4 py-2 text-xs font-bold text-flame transition-all hover:bg-flame hover:text-void hover:shadow-[0_0_15px_rgba(255,61,46,0.4)]"
-                    >
+                      className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-flame/10 border border-flame/20 px-4 py-2 text-xs font-bold text-flame transition-all hover:bg-flame hover:text-void hover:shadow-[0_0_15px_rgba(255,61,46,0.4)]">
                       <ExternalLink size={14} /> Live Demo
                     </a>
                   )}
