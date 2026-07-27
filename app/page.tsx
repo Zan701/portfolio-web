@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download, Loader2 } from "lucide-react"; // Kita import Loader2 untuk ikon mutar
+import { ArrowRight, Download, Loader2 } from "lucide-react"; 
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss, SiJavascript, SiPhp, SiLaravel, SiFigma } from "react-icons/si";
 
 const CanvaIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -138,8 +138,7 @@ export default function Home() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="z-10 mt-6 flex flex-col items-center gap-3 text-center"
-            >
+              className="z-10 mt-6 flex flex-col items-center gap-3 text-center">
               <h2 className="text-xl font-medium text-ink-muted">Web Developer</h2>
               <p className="max-w-2xl text-base sm:text-lg text-ink-muted/80">
                 Building digital products through business understanding, thoughtful design, and modern web technologies.
@@ -168,8 +167,7 @@ export default function Home() {
             <motion.div
               className="flex whitespace-nowrap w-max items-center"
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            >
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}>
               {[...tools, ...tools].map((t, i) => (
                 <span key={i} className="flex items-center gap-3 font-mono text-base uppercase tracking-wider text-ink-muted px-10 transition-colors hover:text-ink">
                   <t.icon className="text-2xl" />
@@ -179,9 +177,9 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <About />
-          <Projects />
-          <Contact />
+          <About/>
+          <Projects/>
+          <Contact/>
 
           {/* --- FOOTER --- */}
           <footer className="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800">

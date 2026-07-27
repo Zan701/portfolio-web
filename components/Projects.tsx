@@ -1,38 +1,10 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Image as ImageIcon } from "lucide-react";
+import Link from "next/link";
+import { projectsData } from "@/lib/projectsData";
 
 export default function Projects() {
 
-  // Data Project
-  const projectsData = [
-    {
-      title: "E-Commerce B2C Joranku Rod Custom",
-      category: "E-Commerce",
-      description: "A B2C website developed to help the Joranku Rod Custom MSME digitize its fishing equipment sales process. This system features rod customization based on customer needs, supported by online transactions through Midtrans, RajaOngkir integration, and after-sales service in the form of product returns.",
-      tags: ["Laravel 12", "PHP", "HTML", "CSS", "JavaSript", "Fabric.Js", "Chart.Js", "MySql", "Midtrans", "RajaOngkir", "Tawk.To"],
-      image: "/jrcstore1.jpg", 
-      liveUrl: "https://jrcstore.my.id/",
-      caseStudyUrl: "#", 
-    },
-    {
-      title: "Aplikasi Kasir (POS)",
-      category: "Web Point Of Sale (POS)",
-      description: "Sistem point-of-sale berbasis web dengan fitur manajemen stok.",
-      tags: ["Laravel 12", "PHP", "HTML", "Bootstrap", "JavaSript", "Chart.Js", "MySql", "Midtrans"],
-      image: "/pos_af.jpg",
-      liveUrl: "", 
-      caseStudyUrl: "#",
-    },
-    {
-      title: "E- Commerce B2C Toko Asun",
-      category: "E-Commerce",
-      description: "Website personal yang sedang kamu lihat saat ini, full animasi Y2K.",
-      tags: ["Laravel 12", "PHP", "HTML", "Bootstrap", "JavaSript", "Chart.Js", "MySql", "Midtrans", "RajaOngkir"],
-      image: "/sembako.jpg",
-      liveUrl: "https://tokoasun.my.id/",
-      caseStudyUrl: "#",
-    },
-  ];
 
   return (
     <section id="projects" className="flex min-h-screen flex-col items-center justify-center px-6 py-24 bg-transparent relative z-10">
@@ -101,15 +73,14 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-
                 
                 <div className="flex gap-3 mt-auto pt-4 border-t border-line border-dashed">
              
-                  <a
-                    href={project.caseStudyUrl}
-                    className="flex-1 flex items-center justify-center gap-2 rounded-lg border border-line bg-surface-2 px-4 py-2 text-xs font-bold text-ink transition-all hover:border-spark/50 hover:text-spark" >
+                  <Link
+                    href={`/project/${project.slug}`}
+                    className="flex-1 flex items-center justify-center gap-2 rounded-lg border border-line bg-surface-2 px-4 py-2 text-xs font-bold text-ink transition-all hover:border-spark/50 hover:text-spark cursor-pointer" >
                     <ImageIcon size={14} /> View 
-                  </a>
+                  </Link>
 
                   {project.liveUrl && (
                     <a

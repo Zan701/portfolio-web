@@ -22,7 +22,7 @@ const fontOutfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Fauzan | Web Developer",
+  title: "Fauzan Azhima",
   description: "Portfolio of Fauzan Azhima",
 };
 
