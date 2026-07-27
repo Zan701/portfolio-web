@@ -13,6 +13,9 @@ const CanvaIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 import About from "@/components/About";
 import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import Certificates from "@/components/Certificates";
+import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import BackgroundY2K from "@/components/BackgroundY2K";
 
@@ -179,6 +182,9 @@ export default function Home() {
 
           <About/>
           <Projects/>
+          <Skills/>
+          <Certificates/>
+          <Gallery/>
           <Contact/>
 
           {/* --- FOOTER --- */}
