@@ -98,7 +98,7 @@ export default function Home() {
               <img
                 src="/foto1.png"
                 alt="Fauzan Azhima"
-                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 active:grayscale-0 transition-all duration-500 cursor-pointer select-none"
               />
             </motion.div>
 
