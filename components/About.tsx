@@ -71,8 +71,7 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   tabIndex={0}
-                  className="relative z-10 flex flex-col items-center group cursor-pointer outline-none"
-                >
+                  className="relative z-10 flex flex-col items-center group cursor-pointer outline-none">
                   <div className="w-16 h-16 rounded-full bg-void border-2 border-line flex items-center justify-center mb-6 transition-all duration-300 group-hover:border-spark group-hover:shadow-[0_0_20px_rgba(255,201,60,0.2)] group-hover:-translate-y-2 group-active:border-spark group-active:shadow-[0_0_20px_rgba(255,201,60,0.2)] group-active:-translate-y-2 group-focus:border-spark group-focus:shadow-[0_0_20px_rgba(255,201,60,0.2)] group-focus:-translate-y-2">
                     <span className="font-mono text-xl font-bold text-flame group-hover:text-spark group-active:text-spark group-focus:text-spark transition-colors">{item.step}</span>
                   </div>

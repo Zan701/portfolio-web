@@ -40,7 +40,7 @@ export default function BackgroundY2K() {
           scale: [1, 1.2, 1],
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-flame/10 blur-[140px] z-[1]"
+        className="hidden md:block absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-flame/10 blur-[140px] z-[1]"
       />
       {/* Aurora Spark */}
       <motion.div
@@ -50,7 +50,7 @@ export default function BackgroundY2K() {
           scale: [1, 1.3, 1],
         }}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-spark/5 blur-[120px] z-[1]"
+        className="hidden md:block absolute top-[40%] -right-[10%] w-[40%] h-[40%] rounded-full bg-spark/5 blur-[120px] z-[1]"
       />
 
       {/* 3. SVG Y2K LINES (Wireframe & Crosshairs) */}
@@ -79,16 +79,17 @@ export default function BackgroundY2K() {
           const top = `${(i * 17) % 100}%`;
           const left = `${(i * 23) % 100}%`;
           const delay = (i % 5) * 0.5;
+          const mobileHidden = i > 15 ? "hidden md:block" : "";
+          
           return (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-spark"
+              className={`absolute rounded-full bg-spark ${mobileHidden} md:shadow-[0_0_10px_2px_rgba(255,201,60,0.8)]`}
               style={{
                 width: size,
                 height: size,
                 top,
                 left,
-                boxShadow: `0 0 10px 2px rgba(255, 201, 60, 0.8)`
               }}
               animate={{
                 y: [0, -80, 0],
@@ -107,7 +108,7 @@ export default function BackgroundY2K() {
 
       {/* 5. NOISE TEXTURE (Opacity diturunkan agar lebih subtle dan tidak mendominasi) */}
       <div 
-        className="absolute inset-0 z-[5] opacity-[0.06] mix-blend-overlay"
+        className="hidden md:block absolute inset-0 z-[5] opacity-[0.06] mix-blend-overlay"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
