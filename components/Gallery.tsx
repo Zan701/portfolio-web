@@ -28,10 +28,10 @@ export default function Gallery() {
   return (
     <section id="gallery" className="flex flex-col items-center justify-center px-4 py-24 bg-transparent relative z-10 border-t border-line/50">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full max-w-6xl"
       >
         <div className="text-center mb-16">
@@ -48,10 +48,10 @@ export default function Gallery() {
           {galleryItems.map((item, index) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, scale: 0.9, rotate: index % 2 === 0 ? -4 : 4, y: 30 }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
+              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+              transition={{ duration: 0.5, delay: (index % 5) * 0.1, ease: "easeOut" }}
               onClick={() => setSelectedImage(item)}
               className="group break-inside-avoid relative rounded-xl overflow-hidden cursor-pointer border border-line/50 hover:border-spark/50 transition-all duration-300"
             >

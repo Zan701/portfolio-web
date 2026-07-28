@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Download, Loader2 } from "lucide-react"; 
+import { ArrowRight, Download, Loader2, Mouse, ChevronDown } from "lucide-react";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiHtml5, SiCss, SiJavascript, SiPhp, SiLaravel, SiFigma } from "react-icons/si";
 
 const CanvaIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -158,9 +158,24 @@ export default function Home() {
               <a href="#projects" className="group flex items-center justify-center gap-2 rounded-full bg-flame px-8 py-3 text-sm font-bold text-void transition-all hover:bg-flame-dim hover:shadow-[0_0_24px_rgba(255,61,46,0.3)]">
                 Show Project <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="#" className="flex items-center justify-center gap-2 rounded-full border border-line bg-surface/50 px-8 py-3 text-sm font-bold text-ink transition hover:bg-surface-2 hover:border-flame/50">
-                Download CV <Download size={18} />
-              </a>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.innerWidth <= 768) {
+                    // HP: Efek "ngintip" 200px lalu balik lagi ke atas
+                    window.scrollBy({ top: 200, behavior: 'smooth' });
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 800);
+                  } else {
+                    // Laptop: Langsung scroll mulus ke bagian About
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="flex items-center justify-center gap-2 rounded-full border border-line bg-surface/50 px-8 py-3 text-sm font-bold text-ink transition hover:bg-surface-2 hover:border-flame/50 cursor-pointer"
+              >
+                Explore More <ChevronDown size={18} />
+              </button>
             </motion.div>
 
           </section>
@@ -180,12 +195,12 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <About/>
-          <Projects/>
-          <Skills/>
-          <Certificates/>
-          <Gallery/>
-          <Contact/>
+          <About />
+          <Projects />
+          <Skills />
+          <Certificates />
+          <Gallery />
+          <Contact />
 
           {/* --- FOOTER --- */}
           <footer className="w-full bg-zinc-950 py-8 text-center border-t border-zinc-800">
