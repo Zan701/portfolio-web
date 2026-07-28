@@ -36,6 +36,7 @@ export default function Home() {
 
   // Fitur saklar untuk mengontrol Layar Loading
   const [isLoading, setIsLoading] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Perintah agar loading selesai setelah 2.5 detik
   useEffect(() => {
@@ -43,6 +44,15 @@ export default function Home() {
       setIsLoading(false);
     }, 2500);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Perintah untuk mendeteksi scroll (biar foto berwarna saat di-scroll di HP)
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -98,7 +108,9 @@ export default function Home() {
               <img
                 src="/foto1.png"
                 alt="Fauzan Azhima"
-                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 active:grayscale-0 transition-all duration-500 cursor-pointer select-none"
+                className={`w-full h-full object-cover object-top transition-all duration-500 cursor-pointer select-none hover:grayscale-0 active:grayscale-0 ${
+                  isScrolled ? 'grayscale-0 sm:grayscale' : 'grayscale'
+                }`}
               />
             </motion.div>
 
