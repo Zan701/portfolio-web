@@ -7,8 +7,8 @@ export default function Skills() {
       skills: ["PHP", "JavaScript", "TypeScript", "HTML", "CSS", "Laravel 11/12", "Next.js", "React", "WordPress"]
     },
     {
-      category: "UI/UX & Design",
-      skills: ["Figma", "Wireframing", "UI Design", "Prototyping", "Adobe Photoshop", "Canva"]
+      category: "UI/UX, System Analysis & Design",
+      skills: ["Figma", "draw.io", "Wireframing", "UI Design", "Prototyping", "Adobe Photoshop", "Canva"]
     },
     {
       category: "Software Testing & QA",
@@ -67,8 +67,7 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-surface/50 p-6 rounded-2xl border border-line hover:border-spark/50 transition-all hover:shadow-[0_0_20px_rgba(255,201,60,0.1)] group backdrop-blur-sm flex flex-col"
-              >
+                className="bg-surface/50 p-6 rounded-2xl border border-line hover:border-spark/50 transition-all hover:shadow-[0_0_20px_rgba(255,201,60,0.1)] group backdrop-blur-sm flex flex-col">
                 <h4 className="text-ink font-semibold mb-4 text-lg group-hover:text-spark transition-colors">
                   {item.category}
                 </h4>
