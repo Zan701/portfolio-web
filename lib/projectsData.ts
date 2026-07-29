@@ -34,7 +34,7 @@ export const projectsData: ProjectData[] = [
     longDescription: [
       "AF-Promotion is a business specializing in custom clothing manufacturing and convection. Before the system was developed, order recording was done manually using paper, which posed a risk of errors, data loss, and made it difficult to manage orders with various screen print sizes, including A3, A4, A5, and other custom requirements.",
       "Through this project, I developed a web-based Point of Sale (POS) system that facilitates order recording, transaction management, and sales administration within a single, integrated platform. The system is designed to support business processes by digitally recording every order from the moment a customer places an order until the transaction is completed.",
-      "Platform ini menyediakan fitur pengelolaan pesanan custom, pencatatan transaksi penjualan, manajemen produk, stok, pelanggan, serta laporan penjualan yang membantu proses monitoring bisnis. Dengan seluruh data yang tersimpan dalam satu sistem, risiko kesalahan pencatatan dapat diminimalkan sekaligus meningkatkan efisiensi operasional sehari-hari."
+      "This platform offers custom order management, sales transaction recording, product, inventory, and customer management, as well as sales reports, all of which aid in business monitoring. With all data stored in a single system, the risk of recording errors is minimized while improving day-to-day operational efficiency."
     ],
     tags: ["Laravel 12", "PHP", "HTML", "Bootstrap", "JavaSript", "Chart.Js", "MySql", "Midtrans"],
     image: "/pos_af.jpg",
